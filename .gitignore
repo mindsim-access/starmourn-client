@@ -1,3 +1,5 @@
+MUSHclient.ini
+mushclient_prefs.sqlite
 Dina.fon
 docs
 Example_filters.lua
@@ -24,7 +26,6 @@ spell
 spellchecker.lua
 tips.txt
 uninstall.exe
-worlds
 docs/gpl.txt
 docs/JSON License.txt
 docs/lpeg-128.gif
@@ -186,7 +187,6 @@ spell/english-words.10
 spell/english-words.20
 spell/english-words.35
 spell/english-words.40
-worlds/plugins
 worlds/plugins/ANSI_Log.xml
 worlds/plugins/ATCP_Mapper.xml
 worlds/plugins/ATCP_NJG.xml
