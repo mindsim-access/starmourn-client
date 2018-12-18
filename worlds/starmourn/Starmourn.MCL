@@ -695,5 +695,5 @@
 <include name="auto_retyping.xml" plugin="y" />
 <include name="LuaAudio.xml" plugin="y" />
 <include name="MushReader.xml" plugin="y" />
-<include name="C:\Users\tyler\starmourn\worlds\plugins\Config_Option_Changer.xml" plugin="y" />
+<include name="Config_Option_Changer.xml" plugin="y" />
 </muclient>
