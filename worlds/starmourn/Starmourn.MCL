@@ -20,7 +20,9 @@
    output_font_name="FixedSys"
    script_editor="notepad"
    script_editor_argument="%file"
+   script_filename="worlds\starmourn\scripts.lua"
    script_language="Lua"
+   script_prefix="$"
    site="starmourn.com"
    spam_message="look"
    speed_walk_prefix="#"
@@ -70,6 +72,7 @@
    pixel_offset="1"
    port="23"
    proxy_port="1080"
+   script_errors_to_output_window="y"
    send_file_delay_per_lines="1"
    send_mxp_afk_response="y"
    show_connect_disconnect="y"
@@ -275,16 +278,16 @@
   </trigger>
   <trigger
    enabled="y"
-   group="communications"
-   match="^(.*?) says to you\, \&quot;(.*?)\&quot;$"
+   group="cosmpiercer"
+   match="^(.*?) stops the liberating attempt\.$"
    regexp="y"
    sequence="100"
   >
   </trigger>
   <trigger
    enabled="y"
-   group="cosmpiercer"
-   match="^(.*?) stops the liberating attempt\.$"
+   group="communications"
+   match="^(.+?) says to you\, \&quot;(.*?)\&quot;$"
    regexp="y"
    sequence="100"
   >
@@ -374,8 +377,9 @@
   <trigger
    enabled="y"
    group="communications"
-   match="^\(Crew\)\: (.*?) says\, \&quot;(.*?)\&quot;$"
+   match="^\((.*?)\)\: (.*?) says\, \&quot;(.*?)\&quot;$"
    regexp="y"
+   script="handle_communications"
    sequence="100"
   >
   </trigger>
@@ -727,4 +731,5 @@
 <include name="LuaAudio.xml" plugin="y" />
 <include name="MushReader.xml" plugin="y" />
 <include name="Config_Option_Changer.xml" plugin="y" />
+<include name="channel_history.xml" plugin="y" />
 </muclient>
