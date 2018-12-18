@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE muclient>
-<!-- Saved on Monday, December 17, 2018, 2:18 PM -->
+<!-- Saved on Tuesday, December 18, 2018, 2:01 PM -->
 <!-- MuClient version 5.05 -->
 <!-- Written by Nick Gammon -->
 <!-- Home Page: http://www.mushclient.com/ -->
@@ -8,7 +8,7 @@
 <world
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2018-12-17 14:18:02"
+   date_saved="2018-12-18 14:01:54"
 
    auto_say_override_prefix="-"
    auto_say_string="say "
@@ -38,6 +38,7 @@
    confirm_before_replacing_typing="y"
    confirm_on_paste="y"
    confirm_on_send="y"
+   convert_ga_to_newline="y"
    default_trigger_sequence="100"
    default_alias_sequence="100"
    detect_pueblo="y"
@@ -108,7 +109,7 @@
 <triggers
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2018-12-17 14:18:02"
+   date_saved="2018-12-18 14:01:54"
   >
   <trigger
    enabled="y"
@@ -374,7 +375,7 @@
 <aliases
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2018-12-17 14:18:02"
+   date_saved="2018-12-18 14:01:54"
   >
 </aliases>
 
@@ -383,7 +384,7 @@
 <timers
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2018-12-17 14:18:02"
+   date_saved="2018-12-18 14:01:54"
   >
 </timers>
 
@@ -392,7 +393,7 @@
 <macros
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2018-12-17 14:18:02"
+   date_saved="2018-12-18 14:01:54"
   >
 
   <macro name="up" type="send_now" >
@@ -486,7 +487,7 @@
 <variables
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2018-12-17 14:18:02"
+   date_saved="2018-12-18 14:01:54"
   >
   <variable name="health"></variable>
   <variable name="health_percent"></variable>
@@ -505,7 +506,7 @@
 <colours
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2018-12-17 14:18:02"
+   date_saved="2018-12-18 14:01:54"
   >
 
 <ansi>
@@ -562,7 +563,7 @@
 <keypad
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2018-12-17 14:18:02"
+   date_saved="2018-12-18 14:01:54"
   >
 
   <key name="0" >
@@ -676,7 +677,7 @@
 <printing
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2018-12-17 14:18:02"
+   date_saved="2018-12-18 14:01:54"
   >
 
 <ansi>
