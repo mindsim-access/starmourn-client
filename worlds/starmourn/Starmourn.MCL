@@ -148,6 +148,13 @@
   </trigger>
   <trigger
    enabled="y"
+   group="mindsim"
+   match="The MindSim has no name assigned."
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="cosmpiercer"
    match="The air is charged with electricity, and a strange humming fills the air."
    sequence="100"
@@ -169,7 +176,7 @@
   </trigger>
   <trigger
    enabled="y"
-   group="mindsim"
+   group="cosmpiercer"
    match="You can only do this at a control point."
    sequence="100"
   >
@@ -323,6 +330,14 @@
    group="prompt"
    match="^Location\: (.*?) \((.*?)\, (.*?)\)$"
    omit_from_output="y"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="mindsim"
+   match="^MindSim name\: (.*?)$"
    regexp="y"
    sequence="100"
   >
