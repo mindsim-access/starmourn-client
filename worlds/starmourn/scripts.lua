@@ -1,5 +1,13 @@
 function handle_communications(name, line, wc)
-ExecuteNoStack("history_add " .. wc[1] .. "=" .. line)
+AddToHistory(wc[1], line)
+end
+
+function handle_tells(name, line, wc)
+  AddToHistory("Tells", line)
+end
+
+function AddToHistory(source, message)
+ExecuteNoStack("history_add " .. source .. "=" .. message)
 end
 
 function ExecuteNoStack(cmd)

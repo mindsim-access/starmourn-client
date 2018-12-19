@@ -294,6 +294,15 @@
   </trigger>
   <trigger
    enabled="y"
+   group="communications"
+   match="^(.+?) tells you\, \&quot;(.*?)\&quot;$"
+   regexp="y"
+   script="handle_tells"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="bots"
    match="^A crane\-armed carrybot claws a (.*?)\, shredding its skin\.$"
    regexp="y"
