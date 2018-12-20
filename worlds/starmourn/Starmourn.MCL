@@ -260,6 +260,13 @@
   </trigger>
   <trigger
    enabled="y"
+   group="transports"
+   match="You can board a transport craft here, check TAKEOFF LIST."
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="combat"
    match="You can find no such target."
    sequence="100"
@@ -318,6 +325,13 @@
    enabled="y"
    group="cosmpiercer"
    match="You have entered a zone in the influence range of an * controlled cosmpiercer."
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="game"
+   match="You have entered an invalid command."
    sequence="100"
   >
   </trigger>
@@ -549,6 +563,14 @@
    enabled="y"
    group="mindsim"
    match="^MindSim name\: (.*?)$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="group"
+   match="^That is not a valid option\. Please select a number from (.*?) to (.*?)\.$"
    regexp="y"
    sequence="100"
   >
