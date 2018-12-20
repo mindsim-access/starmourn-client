@@ -225,6 +225,13 @@
   </trigger>
   <trigger
    enabled="y"
+   group="transports"
+   match="The transport craft travels swiftly through the stars, which streak past the small windows in lines of swift-moving light."
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="ptp"
    match="There is a personal teleporter here. KEY PTP to activate it."
    sequence="100"
@@ -232,8 +239,22 @@
   </trigger>
   <trigger
    enabled="y"
+   group="transports"
+   match="With a hiss of equalizing cabin pressure, the transport craft arrives at your destination, and you disembark."
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="rescue"
    match="You activate a distress signal and a nearby drone sweeps in, dematerializing your physical form. Moments later, you safely rematerialize in the center of a busy rescue station."
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="transports"
+   match="You board the transport craft, which decouples from the dock after a short, canned announcement about safety procedures in an emergency."
    sequence="100"
   >
   </trigger>
@@ -355,8 +376,32 @@
   </trigger>
   <trigger
    enabled="y"
+   group="voidgates"
+   match="^(.*?) arrives in a swirl of color through the voidgate\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="ships"
    match="^(.*?) boards a nearby ship$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="transports"
+   match="^(.*?) boards the transport craft bound for (.*?) and the airlock seals shut\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="voidgates"
+   match="^(.*?) enters the voidgate and disappears in a swirl of color\.$"
    regexp="y"
    sequence="100"
   >
@@ -381,6 +426,14 @@
    enabled="y"
    group="cosmpiercer"
    match="^(.*?) prepares to attempt to liberate the cosmpiercer\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="transports"
+   match="^(.*?) requests a transport craft\.$"
    regexp="y"
    sequence="100"
   >
@@ -446,6 +499,14 @@
    enabled="y"
    group="rescue"
    match="^A sizzle of energy fills the center of the transporter platform with light as (.*?) materializes\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="transports"
+   match="^A transport craft couples with the docking clamps\, and (.*?) disembarks\.$"
    regexp="y"
    sequence="100"
   >
@@ -591,6 +652,14 @@
    enabled="y"
    group="quests"
    match="^You receive (.*?) as reward\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="transports"
+   match="^You request a transport craft to your destination\, (.*?)\.$"
    regexp="y"
    sequence="100"
   >
@@ -773,8 +842,8 @@
   <variable name="health"></variable>
   <variable name="health_percent"></variable>
   <variable name="mxp_prompt">Health: 690/690 PT: 60 [BW-] </variable>
-  <variable name="mxp_roomdesc">Cobbled together from old ships, this busy station is hopping with activity. Search-and-rescue drones come and go, while medi teams hurry through the corridors with patients in tow. </variable>
-  <variable name="mxp_roomname">Breakaway Rescue Station.                                        </variable>
+  <variable name="mxp_roomdesc">Filled with the bustling through-traffic of ten thousand travelers, this station is shaped like a long, ever-curving hallway, the interior of a large ring that swoops around the impossibly vast, highly advanced construct of a voidgate, the product of an ancient technology. Making your way along the kilometers-long walk would bring you past shuttle ports, docking bays, and transfer terminals. Immense holographic charts detail delays due to solar flares, pirate attacks and other frightening galactic weather. Waystations and lounges contain those waiting their turn to go through the heavily monitored gap in the stars, a place to rest and relax before the next, space-bending leg of their journey. </variable>
+  <variable name="mxp_roomname">At the Aleph voidgate iris.                                      </variable>
   <variable name="ship_cap"></variable>
   <variable name="ship_hull">100</variable>
   <variable name="ship_shields"></variable>
