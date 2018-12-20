@@ -6,6 +6,10 @@ function handle_tells(name, line, wc)
   AddToHistory("Tells", line)
 end
 
+function handle_mindsim_messages(name, line, wc)
+  AddToHistory("Mindsim", line)
+end
+
 function AddToHistory(source, message)
 ExecuteNoStack("history_add " .. source .. "=" .. message)
 end
