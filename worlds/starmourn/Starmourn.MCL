@@ -569,7 +569,7 @@
   </trigger>
   <trigger
    enabled="y"
-   group="group"
+   group="game"
    match="^That is not a valid option\. Please select a number from (.*?) to (.*?)\.$"
    regexp="y"
    sequence="100"
