@@ -134,6 +134,13 @@
   </trigger>
   <trigger
    enabled="y"
+   group="bots"
+   match="An aerodynamic drone flies in, decelerating rapidly. It drops a supply of spare parts into your hands."
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="lifts"
    match="An indicator light flashes above the lift as it arrives at this floor."
    sequence="100"
@@ -496,6 +503,14 @@
   </trigger>
   <trigger
    enabled="y"
+   group="construction"
+   match="^You construct (.*?)\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="cosmpiercer"
    match="^You have entered a zone in the influence range of a cosmpiercer controlled by (.*?)\.$"
    regexp="y"
@@ -522,6 +537,14 @@
    enabled="y"
    group="gadgets"
    match="^You initiate a scan on (.*?)\, and the nano\-MRI lasers project a matrix over (.*?)\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="construction"
+   match="^You start constructing a (.*?)\.$"
    regexp="y"
    sequence="100"
   >
@@ -680,9 +703,9 @@
   >
   <variable name="health"></variable>
   <variable name="health_percent"></variable>
-  <variable name="mxp_prompt">Health: 690/690 PT: 48 [BW-] </variable>
-  <variable name="mxp_roomdesc">Sputtering lights and sparks from exposed wiring lying in a pool of water illuminate this cramped lift platform, the frame of the lift creaking and rickety, barely held together by riveted metal panels. The walls, ceiling, and floor are bare asteroid, chilly to the touch, and the stale, rotten funk of mildewed air filters assaults your senses. </variable>
-  <variable name="mxp_roomname">Near the Oldtown lift platform.                                  </variable>
+  <variable name="mxp_prompt">Health: 690/690 PT: 11 [BW-] </variable>
+  <variable name="mxp_roomdesc">Like tiny boats, little curved leaves float and swirl across the surface of the deep water here, having fallen from their parent trees high above.  Nearby, the metallic spire of a water purifier rises into the air, status lights blinking on a ceramic control ring near the base. </variable>
+  <variable name="mxp_roomname">The leaf-strewn surface of the lake.                             </variable>
   <variable name="ship_cap"></variable>
   <variable name="ship_hull">100</variable>
   <variable name="ship_shields"></variable>
