@@ -630,8 +630,8 @@
   <variable name="health"></variable>
   <variable name="health_percent"></variable>
   <variable name="mxp_prompt">Health: 690/690 PT: 48 [BW-] </variable>
-  <variable name="mxp_roomdesc">On a long platform about half a meter off the ground, a row of personal teleporters stand, each one enclosed in a paristeel frame. A low hum of energy buzzes from the teleports when closely approached, and a small control panel on the side of each one allows the traveler to key in their destination. </variable>
-  <variable name="mxp_roomname">Haven City Transport Station: Personal Teleports.                </variable>
+  <variable name="mxp_roomdesc">Sputtering lights and sparks from exposed wiring lying in a pool of water illuminate this cramped lift platform, the frame of the lift creaking and rickety, barely held together by riveted metal panels. The walls, ceiling, and floor are bare asteroid, chilly to the touch, and the stale, rotten funk of mildewed air filters assaults your senses. </variable>
+  <variable name="mxp_roomname">Near the Oldtown lift platform.                                  </variable>
   <variable name="ship_cap"></variable>
   <variable name="ship_hull">100</variable>
   <variable name="ship_shields"></variable>
@@ -843,4 +843,5 @@
 <include name="Config_Option_Changer.xml" plugin="y" />
 <include name="channel_history.xml" plugin="y" />
 <include name="ATCP_NJG.xml" plugin="y" />
+<include name="output_functions.xml" plugin="y" />
 </muclient>
