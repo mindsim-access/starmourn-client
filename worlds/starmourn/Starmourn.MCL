@@ -134,6 +134,13 @@
   </trigger>
   <trigger
    enabled="y"
+   group="lifts"
+   match="An indicator light flashes above the lift as it arrives at this floor."
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="ambience"
    match="As you breathe in, you smell the tangy, ozone-rich, slightly stale scent of recycled air."
    sequence="100"
@@ -171,6 +178,34 @@
    enabled="y"
    group="cosmpiercer"
    match="The defenses of the cosmpiercer's network are subverted - it will change hands soon."
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="lifts"
+   match="The ground beneath your feet seems to shift for a split second as the lift begins to move."
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="lifts"
+   match="The interface changes color, calling the lift car to your location."
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="lifts"
+   match="The lift comes to a complete stop, a ping echoing from the control interface."
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="lifts"
+   match="The lift interface changes color as * calls the lift car to this location."
    sequence="100"
   >
   </trigger>
@@ -372,8 +407,16 @@
   </trigger>
   <trigger
    enabled="y"
-   group="mindsim"
+   group="ptp"
    match="^Linking into the interface of (.*?)\, you see the following destinations programmed\:$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="lifts"
+   match="^Linking into the interface of (.*?)\, you see the following stops programmed\:$"
    regexp="y"
    sequence="100"
   >
@@ -415,6 +458,14 @@
    enabled="y"
    group="movement"
    match="^You (.*?) to the (\W?)\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="interaction"
+   match="^You acknowledge (.*?) in greeting\.$"
    regexp="y"
    sequence="100"
   >
@@ -630,8 +681,8 @@
   <variable name="health"></variable>
   <variable name="health_percent"></variable>
   <variable name="mxp_prompt">Health: 690/690 PT: 48 [BW-] </variable>
-  <variable name="mxp_roomdesc">On a long platform about half a meter off the ground, a row of personal teleporters stand, each one enclosed in a paristeel frame. A low hum of energy buzzes from the teleports when closely approached, and a small control panel on the side of each one allows the traveler to key in their destination. </variable>
-  <variable name="mxp_roomname">Haven City Transport Station: Personal Teleports.                </variable>
+  <variable name="mxp_roomdesc">Sputtering lights and sparks from exposed wiring lying in a pool of water illuminate this cramped lift platform, the frame of the lift creaking and rickety, barely held together by riveted metal panels. The walls, ceiling, and floor are bare asteroid, chilly to the touch, and the stale, rotten funk of mildewed air filters assaults your senses. </variable>
+  <variable name="mxp_roomname">Near the Oldtown lift platform.                                  </variable>
   <variable name="ship_cap"></variable>
   <variable name="ship_hull">100</variable>
   <variable name="ship_shields"></variable>
