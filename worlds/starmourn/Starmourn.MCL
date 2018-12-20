@@ -232,6 +232,13 @@
   </trigger>
   <trigger
    enabled="y"
+   group="quests"
+   match="You have completed *"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="cosmpiercer"
    match="You have entered a zone in the influence range of an * controlled cosmpiercer."
    sequence="100"
@@ -267,6 +274,16 @@
   </trigger>
   <trigger
    enabled="y"
+   group="movement"
+   match="You walk *"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="communications"
    match="You will now listen to the conversation of your faction."
    sequence="100"
@@ -284,6 +301,14 @@
    enabled="y"
    group="ships"
    match="^(.*?) boards a nearby ship$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="quests"
+   match="^(.*?) has been added to your quest log\! Type (.*?) for more information\.$"
    regexp="y"
    sequence="100"
   >
@@ -413,14 +438,6 @@
   </trigger>
   <trigger
    enabled="y"
-   group="movement"
-   match="^You (.*?) to the (\W?)\.$"
-   regexp="y"
-   sequence="100"
-  >
-  </trigger>
-  <trigger
-   enabled="y"
    group="ships"
    match="^You are now leaving the (.*?) subsec\.$"
    regexp="y"
@@ -439,6 +456,14 @@
    enabled="y"
    group="equipment"
    match="^You carefully remove a (.*?)\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="quests"
+   match="^You have a new objective in the (.*?) quest\: (.*?)$"
    regexp="y"
    sequence="100"
   >
@@ -477,6 +502,22 @@
   </trigger>
   <trigger
    enabled="y"
+   group="quests"
+   match="^You receive (.*?) as reward\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="claninfluence"
+   match="^Your actions have increased your influence in (.*?)$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="communications"
    match="^\((.*?)\)\: (.*?) says\, \&quot;(.*?)\&quot;$"
    regexp="y"
@@ -499,6 +540,14 @@
    match="^\[(.*?)\]\: (.*?)$"
    regexp="y"
    script="handle_mindsim_messages"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="marks"
+   match="^\[Marks\]\: Your mark balance has been adjusted by (.*?)$"
+   regexp="y"
    sequence="100"
   >
   </trigger>
