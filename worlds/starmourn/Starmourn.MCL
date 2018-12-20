@@ -239,8 +239,22 @@
   </trigger>
   <trigger
    enabled="y"
+   group="combat"
+   match="You can find no such target."
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="cosmpiercer"
    match="You can only do this at a control point."
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="combat"
+   match="You cannot perform that action on yourself."
    sequence="100"
   >
   </trigger>
@@ -430,6 +444,14 @@
   </trigger>
   <trigger
    enabled="y"
+   group="rescue"
+   match="^A sizzle of energy fills the center of the transporter platform with light as (.*?) materializes\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="prompt"
    match="^Health\: (.*?)\/(.*?) PT\: (.*?) \[BW\-\] $"
    omit_from_output="y"
@@ -487,6 +509,13 @@
   >
   </trigger>
   <trigger
+   group="interaction"
+   match="^You acknowledge (.*?) in greeting\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
    enabled="y"
    group="ships"
    match="^You are now leaving the (.*?) subsec\.$"
@@ -512,16 +541,16 @@
   </trigger>
   <trigger
    enabled="y"
-   group="quests"
-   match="^You have a new objective in the (.*?) quest\: (.*?)$"
+   group="construction"
+   match="^You construct (.*?)\.$"
    regexp="y"
    sequence="100"
   >
   </trigger>
   <trigger
    enabled="y"
-   group="construction"
-   match="^You construct (.*?)\.$"
+   group="quests"
+   match="^You have a new objective in the (.*?) quest\: (.*?)$"
    regexp="y"
    sequence="100"
   >
@@ -562,6 +591,13 @@
    enabled="y"
    group="quests"
    match="^You receive (.*?) as reward\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   group="construction"
+   match="^You start constructing a (.*?)\.$"
    regexp="y"
    sequence="100"
   >
@@ -617,29 +653,7 @@
    sequence="100"
   >
   </trigger>
-  <trigger
-     group="construction"
-   match="^You start constructing a (.*?)\.$"
-   regexp="y"
-   sequence="100"
-  >
-  </trigger>
-  <trigger
-   group="interaction"
-   match="^You acknowledge (.*?) in greeting\.$"
-   regexp="y"
-   sequence="100"
-  >
-  </trigger>
-  <trigger
-   enabled="y"
-   group="ships"
-   match="^You are now leaving the (.*?) subsec\.$"
-   regexp="y"
-   sequence="100"
-  >
-  </trigger>
-  </triggers>
+</triggers>
 
 <!-- aliases -->
 
@@ -758,9 +772,9 @@
   >
   <variable name="health"></variable>
   <variable name="health_percent"></variable>
-  <variable name="mxp_prompt">Health: 690/690 PT: 11 [BW-] </variable>
-  <variable name="mxp_roomdesc">Like tiny boats, little curved leaves float and swirl across the surface of the deep water here, having fallen from their parent trees high above.  Nearby, the metallic spire of a water purifier rises into the air, status lights blinking on a ceramic control ring near the base. </variable>
-  <variable name="mxp_roomname">The leaf-strewn surface of the lake.                             </variable>
+  <variable name="mxp_prompt">Health: 690/690 PT: 60 [BW-] </variable>
+  <variable name="mxp_roomdesc">Cobbled together from old ships, this busy station is hopping with activity. Search-and-rescue drones come and go, while medi teams hurry through the corridors with patients in tow. </variable>
+  <variable name="mxp_roomname">Breakaway Rescue Station.                                        </variable>
   <variable name="ship_cap"></variable>
   <variable name="ship_hull">100</variable>
   <variable name="ship_shields"></variable>
