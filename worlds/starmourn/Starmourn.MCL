@@ -141,8 +141,29 @@
   </trigger>
   <trigger
    enabled="y"
+   group="gadgets"
+   match="An arm-mounted wormhole generator stops vibrating, as it cannot find its end-point."
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="lifts"
    match="An indicator light flashes above the lift as it arrives at this floor."
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="cloning"
+   match="As the liquid drains, vision returns, and you blink away the sticky, clinging fluid. You look down at your new body which is, as expected, exactly like your previous one."
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="hacking"
+   match="As you attempt to access the terminal, you find your mindsim access has been temporarily revoked. You will need to try again later."
    sequence="100"
   >
   </trigger>
@@ -162,8 +183,36 @@
   </trigger>
   <trigger
    enabled="y"
+   group="workstations"
+   match="Flicking the power switch and collapsing the legs, you pack up your workstation into its travel configuration."
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="hacking"
+   match="Having run out of GigaOps, your virus form disintegrates. Your hacking effort fails."
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="cloning"
+   match="Overwhelming pain floods your senses, as if every nerve in your body has fired at once."
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="game"
    match="Password correct. Welcome to Starmourn."
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="cloning"
+   match="Sounds begin to reach you, though they are oddly muffled; you feel weightless and disconnected, floating in a tank surrounded by a viscous fluid calibrated to your exact body temperature."
    sequence="100"
   >
   </trigger>
@@ -213,6 +262,13 @@
    enabled="y"
    group="lifts"
    match="The lift interface changes color as * calls the lift car to this location."
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="cloning"
+   match="The medbots release your body from its restraints on the lab table you're on, and you stand up, feeling a little wobbly. *"
    sequence="100"
   >
   </trigger>
@@ -295,6 +351,13 @@
   </trigger>
   <trigger
    enabled="y"
+   group="stimjector"
+   match="You configure your stimjector to attempt to heal you automatically."
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="ships"
    match="You embark the ship."
    sequence="100"
@@ -309,8 +372,22 @@
   </trigger>
   <trigger
    enabled="y"
-   group="gadgets"
+   group="cloning"
+   match="You feel a disorienting wrench of sudden consciousness, and it feels like your mind is being torn apart and put back together again."
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="stimjector"
    match="You feel a rush of vitality as your stimjector releases healing nanites into your bloodstream."
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="workstations"
+   match="You fold down the legs of your workstation and switch everything on. The contraption bursts to life, extruding parts on the 3D printer and routing power to the available outlets."
    sequence="100"
   >
   </trigger>
@@ -377,6 +454,20 @@
    enabled="y"
    group="communications"
    match="You will now listen to the conversation of your faction."
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="combat"
+   match="You're no longer in cover!"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="hacking"
+   match="Your vision comes back into focus as your consciousness returns to your physical body."
    sequence="100"
   >
   </trigger>
@@ -527,6 +618,14 @@
   </trigger>
   <trigger
    enabled="y"
+   group="cloning"
+   match="^Gradually\, the pain subsides\. A foul taste and a sense of claustrophobic intrusion fills your mouth\, and you realize there is a tubelike breathing apparatus attached to it\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="prompt"
    match="^Health\: (.*?)\/(.*?) PT\: (.*?) \[BW\-\] $"
    omit_from_output="y"
@@ -563,6 +662,14 @@
    enabled="y"
    group="mindsim"
    match="^MindSim name\: (.*?)$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="turrets"
+   match="^Plugging a hacking module into a port on (.*?)\, you instruct your mindsim to run a subversion subroutine through the device in an attempt to reassign its current permissions to you\.$"
    regexp="y"
    sequence="100"
   >
@@ -672,6 +779,14 @@
   </trigger>
   <trigger
    enabled="y"
+   group="gadgets"
+   match="^You point an arm\-mounted wormhole generator in front of yourself\, and it starts vibrating slightly as it searches for (.*?)\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="quests"
    match="^You receive (.*?) as reward\.$"
    regexp="y"
@@ -689,6 +804,22 @@
   <trigger
    group="construction"
    match="^You start constructing a (.*?)\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="turrets"
+   match="^You subvert (.*?)\, gaining control over its operations\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="combat"
+   match="^You vault over (.*?) and take cover behind it\.$"
    regexp="y"
    sequence="100"
   >
@@ -864,8 +995,8 @@
   <variable name="health"></variable>
   <variable name="health_percent"></variable>
   <variable name="mxp_prompt">Health: 690/690 PT: 60 [BW-] </variable>
-  <variable name="mxp_roomdesc">Filled with the bustling through-traffic of ten thousand travelers, this station is shaped like a long, ever-curving hallway, the interior of a large ring that swoops around the impossibly vast, highly advanced construct of a voidgate, the product of an ancient technology. Making your way along the kilometers-long walk would bring you past shuttle ports, docking bays, and transfer terminals. Immense holographic charts detail delays due to solar flares, pirate attacks and other frightening galactic weather. Waystations and lounges contain those waiting their turn to go through the heavily monitored gap in the stars, a place to rest and relax before the next, space-bending leg of their journey. </variable>
-  <variable name="mxp_roomname">At the Aleph voidgate iris.                                      </variable>
+  <variable name="mxp_roomdesc">Twisting and winding through the asteroid, this side street is difficult to navigate, the ground below your feet uneven with piles of rotting trash and chunks of rubble. </variable>
+  <variable name="mxp_roomname">A chilly, low-ceilinged side street.                             </variable>
   <variable name="ship_cap"></variable>
   <variable name="ship_hull">100</variable>
   <variable name="ship_shields"></variable>
