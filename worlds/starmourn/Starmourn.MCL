@@ -127,6 +127,13 @@
   </trigger>
   <trigger
    enabled="y"
+   group="ambience"
+   match="A large group of new arrivals moves slowly through the spaceport, following a leader who appears to be somewhat lost."
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="cosmpiercer"
    match="A sound of alarm pierces the air, as the automated computer network attempts to neutralise the liberating attempt."
    sequence="100"
@@ -528,6 +535,14 @@
   </trigger>
   <trigger
    enabled="y"
+   group="armor"
+   match="^(.*?) merges (.*?) into (.*?) base layer\, the smartcore technology melding the item seamlessly into (.*?) suit\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="combat"
    match="^(.*?) moves in to attack you\.$"
    regexp="y"
@@ -691,6 +706,14 @@
   </trigger>
   <trigger
    enabled="y"
+   group="game"
+   match="^Pixellated fragments of light shift and mirror the surroundings as the form of (.*?) emerges from cold storage\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="turrets"
    match="^Plugging a hacking module into a port on (.*?)\, you instruct your mindsim to run a subversion subroutine through the device in an attempt to reassign its current permissions to you\.$"
    regexp="y"
@@ -701,6 +724,14 @@
    enabled="y"
    group="game"
    match="^That is not a valid option\. Please select a number from (.*?) to (.*?)\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="armor"
+   match="^The SmartCore on (.*?) binds itself to you\.$"
    regexp="y"
    sequence="100"
   >
@@ -802,6 +833,14 @@
   </trigger>
   <trigger
    enabled="y"
+   group="armor"
+   match="^You merge (.*?) into your base layer\, the smartcore technology melds the item seamlessly into the suit\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="gadgets"
    match="^You point an arm\-mounted wormhole generator in front of yourself\, and it starts vibrating slightly as it searches for (.*?)\.$"
    regexp="y"
@@ -849,7 +888,7 @@
   </trigger>
   <trigger
    enabled="y"
-   group="claninfluence"
+   group="faction"
    match="^Your actions have increased your influence in (.*?)$"
    regexp="y"
    sequence="100"
@@ -1018,8 +1057,8 @@
   <variable name="health"></variable>
   <variable name="health_percent"></variable>
   <variable name="mxp_prompt">Health: 690/690 PT: 60 [BW-] </variable>
-  <variable name="mxp_roomdesc">Lined with benches, this transport gate is filled with people arriving from out of the system, or waiting for their ship to come in. A large, clanking airlock regularly discharges new arrivals to the station, the metal battered and worn, like much else about this ramshackle space station that serves as a central transit point for the sector. </variable>
-  <variable name="mxp_roomname">A docking gate in Reynolds Spaceport.                            </variable>
+  <variable name="mxp_roomdesc">Curving gently through Reynolds Spaceport, passing departure gates, ticket counters, and bench-lined waiting areas, this area is ever-crowded with travelers representing all races and walks of life. The hallway has a lived in feel. The riveted, heavy metal panels that make up the walls look battered and worn. The space narrows at one spot, forced to divert around the shopfront of a nearby Quickmark Pawn that seems to be spilling into the hallway in a controlled chaos of salvage and junk. </variable>
+  <variable name="mxp_roomname">A curving hallway looping around a Quickmark Pawn.               </variable>
   <variable name="ship_cap"></variable>
   <variable name="ship_hull">100</variable>
   <variable name="ship_shields"></variable>
