@@ -253,8 +253,22 @@
   </trigger>
   <trigger
    enabled="y"
+   group="ambience"
+   match="The floor shivers underfoot, reacting to a minor, temporary increase in engine power."
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="lifts"
    match="The ground beneath your feet seems to shift for a split second as the lift begins to move."
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="ambience"
+   match="The heavy tread of footsteps echoes through the ruins."
    sequence="100"
   >
   </trigger>
@@ -325,6 +339,13 @@
    enabled="y"
    group="transports"
    match="You board the transport craft, which decouples from the dock after a short, canned announcement about safety procedures in an emergency."
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="bots"
+   match="You can again order a repeated attack."
    sequence="100"
   >
   </trigger>
@@ -569,6 +590,14 @@
    enabled="y"
    group="cloning"
    match="^(.*?) stands up from the lab table\, (.*?) consciousness now residing in a new cloned body\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="bots"
+   match="^(.*?) stops its attack\.$"
    regexp="y"
    sequence="100"
   >
@@ -1056,9 +1085,9 @@
   >
   <variable name="health"></variable>
   <variable name="health_percent"></variable>
-  <variable name="mxp_prompt">Health: 690/690 PT: 60 [BW-] </variable>
-  <variable name="mxp_roomdesc">Curving gently through Reynolds Spaceport, passing departure gates, ticket counters, and bench-lined waiting areas, this area is ever-crowded with travelers representing all races and walks of life. The hallway has a lived in feel. The riveted, heavy metal panels that make up the walls look battered and worn. The space narrows at one spot, forced to divert around the shopfront of a nearby Quickmark Pawn that seems to be spilling into the hallway in a controlled chaos of salvage and junk. </variable>
-  <variable name="mxp_roomname">A curving hallway looping around a Quickmark Pawn.               </variable>
+  <variable name="mxp_prompt">Health: 690/690 PT: 48 [BW-] </variable>
+  <variable name="mxp_roomdesc">Once a modern public service, this de-railed train is now nothing but a tangled heap of wreckage. The nanoplastic siding of the cars is cracked, the blue and white colors faded, moldy, and smeared with grime. Signs of prior habitation are visible in and around the tram cars, with ragged scraps of old clothing, rusted comm units littering the area. Anything of value has been stripped away from the wreckage. </variable>
+  <variable name="mxp_roomname">Passing a twisted tangle of de-railed tram cars.                 </variable>
   <variable name="ship_cap"></variable>
   <variable name="ship_hull">100</variable>
   <variable name="ship_shields"></variable>
