@@ -218,6 +218,13 @@
   </trigger>
   <trigger
    enabled="y"
+   group="ambience"
+   match="Speeding past you on a hoverbike is a frantic courier."
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="mindsim"
    match="The MindSim has no name assigned."
    sequence="100"
@@ -545,6 +552,14 @@
   </trigger>
   <trigger
    enabled="y"
+   group="cloning"
+   match="^(.*?) stands up from the lab table\, (.*?) consciousness now residing in a new cloned body\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="cosmpiercer"
    match="^(.*?) stops the liberating attempt\.$"
    regexp="y"
@@ -580,6 +595,14 @@
    enabled="y"
    group="ptp"
    match="^A giddy sense of vertigo wrenches at your equilibrium as you activate (.*?)\, materializing at your destination in an instant\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="bots"
+   match="^A knife\-mawed burrowbot burrows deeper into (.*?)\'s flesh\.$"
    regexp="y"
    sequence="100"
   >
@@ -995,8 +1018,8 @@
   <variable name="health"></variable>
   <variable name="health_percent"></variable>
   <variable name="mxp_prompt">Health: 690/690 PT: 60 [BW-] </variable>
-  <variable name="mxp_roomdesc">Twisting and winding through the asteroid, this side street is difficult to navigate, the ground below your feet uneven with piles of rotting trash and chunks of rubble. </variable>
-  <variable name="mxp_roomname">A chilly, low-ceilinged side street.                             </variable>
+  <variable name="mxp_roomdesc">Lined with benches, this transport gate is filled with people arriving from out of the system, or waiting for their ship to come in. A large, clanking airlock regularly discharges new arrivals to the station, the metal battered and worn, like much else about this ramshackle space station that serves as a central transit point for the sector. </variable>
+  <variable name="mxp_roomname">A docking gate in Reynolds Spaceport.                            </variable>
   <variable name="ship_cap"></variable>
   <variable name="ship_hull">100</variable>
   <variable name="ship_shields"></variable>
