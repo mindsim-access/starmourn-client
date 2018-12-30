@@ -428,6 +428,13 @@
   </trigger>
   <trigger
    enabled="y"
+   group="gadgets"
+   match="You feel a rush of vitality as your stimjector releases healing nanites into your bloodstream."
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="stimjector"
    match="You feel a rush of vitality as your stimjector releases healing nanites into your bloodstream."
    sequence="100"
@@ -543,6 +550,14 @@
   </trigger>
   <trigger
    enabled="y"
+   group="lessons"
+   match="^(.*?) agrees to impart some of (.*?) knowledge in (.*?) with you\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="ships"
    match="^(.*?) arrives down the landing ramp of a nearby ship\.$"
    regexp="y"
@@ -577,6 +592,26 @@
    enabled="y"
    group="voidgates"
    match="^(.*?) enters the voidgate and disappears in a swirl of color\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="movement"
+   match="^(.*?) follow you (.*?)\.$"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="movement"
+   match="^(.*?) follows you to the (.*?)\.$"
+   omit_from_log="y"
+   omit_from_output="y"
    regexp="y"
    sequence="100"
   >
@@ -664,6 +699,14 @@
   </trigger>
   <trigger
    enabled="y"
+   group="gunslinging"
+   match="^A (.*?) kicks in your grip and an explosive noise cracks the air as you fire a shot at (.*?)$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="bots"
    match="^A crane\-armed carrybot claws a (.*?)\, shredding its skin\.$"
    regexp="y"
@@ -720,8 +763,40 @@
   </trigger>
   <trigger
    enabled="y"
+   group="improvisation"
+   match="^As the explosive detonates\, the force of its self\-destruction punches past (.*?) defenses\, wounding it\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="mindsim"
    match="^As you wrench the Internal Neural Replicator from the broken corpse of (.*?)\'s brainstem with a sickening snap\, a swarm of recycling nanites emerge from somewhere to deconstruct the body to its component parts\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="guile"
+   match="^Combining a tiny\, illegal chipset and some off\-the\-shelf sensors\, you construct a tiny recording device\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="guile"
+   match="^Diving into a ducking roll\, you smash (.*?) in the side of the knee with (.*?)\. You get to your feet while it is distracted\, popping the empty clip of your piece out and sliding a new one home with a satisfying click\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="guile"
+   match="^Glancing around\, you furtively use a stolen\, military\-grade adhesive to conceal (.*?) on (.*?)\.$"
    regexp="y"
    sequence="100"
   >
@@ -746,6 +821,14 @@
   <trigger
    enabled="y"
    group="ptp"
+   match="^Linking into the interface of (.*?)\, you see the following destinations programmed\:$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="mindsim"
    match="^Linking into the interface of (.*?)\, you see the following destinations programmed\:$"
    regexp="y"
    sequence="100"
@@ -794,6 +877,22 @@
   </trigger>
   <trigger
    enabled="y"
+   group="gunslinging"
+   match="^Squaring your hips and spinning (.*?) deftly in one hand\, you survey the area\, ready to shoot down the first beating heart that walks in\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="guile"
+   match="^Swinging wildly with all your might\, you land a mighty punch on (.*?)$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="game"
    match="^That is not a valid option\. Please select a number from (.*?) to (.*?)\.$"
    regexp="y"
@@ -825,8 +924,32 @@
   >
   </trigger>
   <trigger
+   enabled="y"
+   group="improvisation"
+   match="^Using whatever supplies you have on hand\, you skillfully construct (.*?) handfuls of explosive putty\. They are all slapdash and hasty\, but they\'ll do\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="gunslinging"
+   match="^With hairtrigger speed\, you fire off a shot at (.*?) the second you see it\, the explosive bang of the bullet leaving the barrel a deafening\, intimidating noise\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
    group="interaction"
    match="^You acknowledge (.*?) in greeting\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="improvisation"
+   match="^You are again able to prime a room\-wide explosive device\.$"
    regexp="y"
    sequence="100"
   >
@@ -841,8 +964,24 @@
   </trigger>
   <trigger
    enabled="y"
+   group="guile"
+   match="^You are now tuned in to bug (.*?)$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="equipment"
    match="^You are now wearing a (.*?) on your (.*?)\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="guile"
+   match="^You can again use a stim\.$"
    regexp="y"
    sequence="100"
   >
@@ -857,8 +996,32 @@
   </trigger>
   <trigger
    enabled="y"
+   group="gunslinging"
+   match="^You check the magazine of your weapon and discover there are still bullets inside it\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="construction"
    match="^You construct (.*?)\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="gunslinging"
+   match="^You flip (.*?) in your hand\, hit the eject button on the magazine\, and send the spent\, steaming hunk of metal rocketing at (.*?)\. You slide a new cartridge smoothly into place and pull back the hammer\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="marks"
+   match="^You hand over your junk\, and your account is credited with (.*?) Covenant marks\.$"
    regexp="y"
    sequence="100"
   >
@@ -889,6 +1052,14 @@
   </trigger>
   <trigger
    enabled="y"
+   group="lessons"
+   match="^You have learned the following abilities in this session\: (.*?)$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="combat"
    match="^You have slain (.*?)\.$"
    regexp="y"
@@ -899,6 +1070,38 @@
    enabled="y"
    group="gadgets"
    match="^You initiate a scan on (.*?)\, and the nano\-MRI lasers project a matrix over (.*?)\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="stats"
+   match="^You invest (.*?) stat points into your (.*?) attribute\, giving you a total of (.*?) points\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="gunslinging"
+   match="^You lack the bullets to be able to do that\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="gunslinging"
+   match="^You load a cartridge of eight new bullets into (.*?) with dextrous ease\, then pull back the hammer until it clicks$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="improvisation"
+   match="^You make a few quick and dirty modifications to a handful of explosive putty that you\'re sure will increase the radius of the resulting explosion\. Careless of harm to your own person\, you prime the detonation sequence and toss the explosive forward\.$"
    regexp="y"
    sequence="100"
   >
@@ -921,6 +1124,14 @@
   </trigger>
   <trigger
    enabled="y"
+   group="guile"
+   match="^You quickly retrieve a tiny recording device\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="quests"
    match="^You receive (.*?) as reward\.$"
    regexp="y"
@@ -931,6 +1142,46 @@
    enabled="y"
    group="transports"
    match="^You request a transport craft to your destination\, (.*?)\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="lessons"
+   match="^You request that (.*?) share some of (.*?) knowledge of (.*?) with you\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="combat"
+   match="^You salvage (.*?) from the lifeless remains\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="gunslinging"
+   match="^You spin the chamber of the ammo case on your belt until combusting bullets comes up\, ready to use\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="gunslinging"
+   match="^You spin the chamber of the ammo case on your belt until impairing ammo with a random effect comes up\, ready to use\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="gunslinging"
+   match="^You spin the chamber of the ammo case on your belt until regular ammo comes up\, ready to use\.$"
    regexp="y"
    sequence="100"
   >
@@ -962,6 +1213,30 @@
    enabled="y"
    group="faction"
    match="^Your actions have increased your influence in (.*?)$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="claninfluence"
+   match="^Your actions have increased your influence in (.*?)$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="improvisation"
+   match="^Your attack is ineffective against (.*?) greater might\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="gunslinging"
+   match="^Your shot strikes home with a satisfying accuracy\, afflicting (.*?) with (.*?)$"
    regexp="y"
    sequence="100"
   >
@@ -1005,6 +1280,22 @@
    enabled="y"
    group="marks"
    match="^\[Marks\]\: Your mark balance has been adjusted by (.*?)$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="gunslinging"
+   match="^\[Mindsim\]\: Your gun is empty\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="game"
+   match="^\[Warning\]\: You are approaching your configured time out\. If you do not perform any actions within one minute\, you will be disconnected\.$"
    regexp="y"
    sequence="100"
   >
