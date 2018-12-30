@@ -14,7 +14,7 @@
    command_stack_character=";"
    id="f046c4762e8ca242746ba9d5"
    input_font_name="Fixedsys"
-   mapping_failure="Alas, you cannot go that way."
+   mapping_failure="There is no exit in that direction."
    name="Starmourn"
    new_activity_sound="(No sound)"
    output_font_name="FixedSys"
@@ -465,6 +465,13 @@
    enabled="y"
    group="balance"
    match="You have recovered your balance."
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="stats"
+   match="You invest * stat points into your * attribute, giving you a total of * points."
    sequence="100"
   >
   </trigger>
@@ -970,6 +977,14 @@
   </trigger>
   <trigger
    enabled="y"
+   group="hacking"
+   match="^\*\*\* Congratulations, you have successfully hacked this grid! \*\*\*$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="prompt"
    match="^\[ Speed\: (.*?) \((.*?)\%\) \| Hull\: (.*?)\% \| Shield\: (.*?)\% \| Cap\: (.*?)\% \| (.*?) \] $"
    omit_from_output="y"
@@ -1121,9 +1136,9 @@
   >
   <variable name="health"></variable>
   <variable name="health_percent"></variable>
-  <variable name="mxp_prompt">Health: 755/755 PT: 45 [BW-] </variable>
-  <variable name="mxp_roomdesc">This tight, boxy metal shaft punches straight through the rock, a few vents and access hatches leading off it here and there. </variable>
-  <variable name="mxp_roomname">A claustrophobic maintenance duct.                               </variable>
+  <variable name="mxp_prompt">[ Speed: 0 (100%) | Hull: 100% | Shield: 100% | Cap: 0% | Reynolds Spaceport ] </variable>
+  <variable name="mxp_roomdesc">The interior of this starship has a distinctly well-worn appearance, every piece of equipment battered from use, but still cared for and clean. The bulkheads are dinged and dented from passage through asteroid fields, but have no structural breaches. Edges of consoles and sensors are rounded and shiny from years of forearms leaning against them. Clattering underfoot are corrugated metal floor panels, the hollow reverberations suggesting there may be compartments beneath them. The bridge spreads out here in an array of blinking lights and navigational computers, and rad-shielded formglass windows set into the ship's blunted nose look out into space. </variable>
+  <variable name="mxp_roomname">The bridge of a travel-seasoned starship.                        </variable>
   <variable name="ship_cap"></variable>
   <variable name="ship_hull">100</variable>
   <variable name="ship_shields"></variable>
