@@ -1,5 +1,6 @@
+
 function handle_communications(name, line, wc)
-AddToHistory(wc[1], line)
+  AddToHistory(wc[1], line)
 end
 
 function handle_tells(name, line, wc)
@@ -19,4 +20,7 @@ function ExecuteNoStack(cmd)
   SetOption("enable_command_stack", 0)
   Execute(cmd)
   SetOption("enable_command_stack", s)
+end
+
+function handle_mxp(variable, value)
 end
