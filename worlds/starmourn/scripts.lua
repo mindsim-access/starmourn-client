@@ -1,3 +1,4 @@
+room = {}
 
 function handle_communications(name, line, wc)
   AddToHistory(wc[1], line)
@@ -18,7 +19,17 @@ end
 function handle_GMCP(name, line, wc)
   local command = wc[1]
   local args = wc[2]
-  Note(command .. " " .. args)
+  local handler_func_name = "handle_" .. command:lower():gsub("%.", "_")
+  local handler_func = _G[handle_func_name]
+  if handler_func == nil then
+    Note("No handler " .. handler_func_name .. " for " .. command .. " " .. args)
+  else
+    handler_func(json.decode(args))
+  end -- if
+end -- function
+
+function handle_room_info(data)
+  room = data
 end
 
 function ExecuteNoStack(cmd)

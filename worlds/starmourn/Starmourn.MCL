@@ -1522,8 +1522,8 @@
   <variable name="health"></variable>
   <variable name="health_percent"></variable>
   <variable name="mxp_prompt">Health: 820/820 PT: 48 [BW-] </variable>
-  <variable name="mxp_roomdesc">Uneven terrain and frequent sinkholes litter the landscape, and everything is rocks on rocks on rocks. Dull browns, grays, oranges, yellows, the difficult walk blends into a sea of beige dust, the badlands filled with the abandoned tech that the nearby ruins seem to have flung away, the detritus long since picked over for salvage. </variable>
-  <variable name="mxp_roomname">Rocky badlands outside a ruined city.                            </variable>
+  <variable name="mxp_roomdesc">Cobbled together from old ships, this busy station is hopping with activity. Search-and-rescue drones come and go, while medi teams hurry through the corridors with patients in tow. </variable>
+  <variable name="mxp_roomname">Breakaway Rescue Station.                                        </variable>
   <variable name="ship_cap"></variable>
   <variable name="ship_hull">100</variable>
   <variable name="ship_shields"></variable>
