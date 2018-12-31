@@ -1402,8 +1402,9 @@
   >
   <alias
    script="handle_GMCP"
-   match="^handle_GMCP (.*)=(.*)$"
+   match="^handle_GMCP (.*?)=(.*)$"
    enabled="y"
+   group="gmcp"
    omit_from_command_history="y"
    regexp="y"
    omit_from_output="y"
