@@ -17,6 +17,7 @@
    mapping_failure="There is no exit in that direction."
    name="Starmourn"
    new_activity_sound="(No sound)"
+   on_mxp_set_variable="handle_mxp"
    output_font_name="FixedSys"
    script_editor="notepad"
    script_editor_argument="%file"
@@ -1278,7 +1279,7 @@
   </trigger>
   <trigger
    enabled="y"
-   group="claninfluence"
+   group="faction"
    match="^Your actions have increased your influence in (.*?)$"
    regexp="y"
    sequence="100"
@@ -1286,7 +1287,7 @@
   </trigger>
   <trigger
    enabled="y"
-   group="faction"
+   group="claninfluence"
    match="^Your actions have increased your influence in (.*?)$"
    regexp="y"
    sequence="100"
