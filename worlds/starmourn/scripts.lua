@@ -14,6 +14,12 @@ function AddToHistory(source, message)
 ExecuteNoStack("history_add " .. source .. "=" .. message)
 end
 
+function handle_GMCP(name, line, wc)
+  local command = wc[1]
+  local args = wc[2]
+  Note(command .. " " .. args)
+end
+
 function ExecuteNoStack(cmd)
   local s = GetOption("enable_command_stack")
   SetOption("enable_command_stack", 0)
