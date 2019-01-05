@@ -1,9 +1,7 @@
 require "json"
 
 room = {}
-
 player = {}
-
 
 function handle_communications(name, line, wc)
   AddToHistory(wc[1], line)
@@ -27,8 +25,9 @@ function handle_GMCP(name, line, wc)
   local handler_func_name = "handle_" .. command:lower():gsub("%.", "_")
   local handler_func = _G[handler_func_name]
   if handler_func == nil then
-    Note("No handler " .. handler_func_name .. " for " .. command .. " " .. args)
+    -- Note("No handler " .. handler_func_name .. " for " .. command .. " " .. args)
   else
+    -- Note("Processed " .. command .. " with arguments " .. args)
     handler_func(json.decode(args))
   end -- if
 end -- function
