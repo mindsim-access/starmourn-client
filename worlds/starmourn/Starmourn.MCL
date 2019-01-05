@@ -89,7 +89,6 @@
    timestamp_output_back_colour="black"
    tool_tip_visible_time="5000"
    tool_tip_start_time="400"
-   treeview_triggers="y"
    treeview_aliases="y"
    treeview_timers="y"
    underline_hyperlinks="y"
@@ -1184,6 +1183,15 @@
   </trigger>
   <trigger
    enabled="y"
+   group="taser"
+   match="^You jam your (.*?) into (.*?)\'s torso\, sending arcing electricity coursing through (.*?) body\.$"
+   regexp="y"
+   script="handle_taser_shock"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="gunslinging"
    match="^You lack the bullets to be able to do that\.$"
    regexp="y"
@@ -1538,9 +1546,9 @@
   >
   <variable name="health"></variable>
   <variable name="health_percent"></variable>
-  <variable name="mxp_prompt">[ Speed: 0 (15%) | Hull: 100% | Shield: 100% | Cap: 0% | Reynolds Spaceport ] </variable>
-  <variable name="mxp_roomdesc">The interior of this starship has a distinctly well-worn appearance, every piece of equipment battered from use, but still cared for and clean. The bulkheads are dinged and dented from passage through asteroid fields, but have no structural breaches. Edges of consoles and sensors are rounded and shiny from years of forearms leaning against them. Clattering underfoot are corrugated metal floor panels, the hollow reverberations suggesting there may be compartments beneath them. The bridge spreads out here in an array of blinking lights and navigational computers, and rad-shielded formglass windows set into the ship's blunted nose look out into space. </variable>
-  <variable name="mxp_roomname">The bridge of a travel-seasoned starship.                        </variable>
+  <variable name="mxp_prompt">Health: 820/820 PT: 35 [BW-] </variable>
+  <variable name="mxp_roomdesc">What was once a bustling underground plaza is now a murky, rubble-strewn space. The cracked tile floor is pitted and cratered with standing pools of chilly water. High above, near the shadowed ceiling, a formglass dome, scratched and cloudy, provides a view of the asteroid field beyond this underground ruin. In the center of the plaza, a failing holo-advert sparks and stutters, occasionally emitting eerie snatches of music and imagery from another time. </variable>
+  <variable name="mxp_roomname">A mold-encrusted, rubble-strewn tunnel plaza.                    </variable>
   <variable name="ship_cap"></variable>
   <variable name="ship_hull">100</variable>
   <variable name="ship_shields"></variable>

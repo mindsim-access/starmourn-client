@@ -57,4 +57,12 @@ function ExecuteNoStack(cmd)
 end
 
 function handle_mxp(variable, value)
-end
+end -- function
+
+function PlayGameSound(soundname)
+  return Sound("worlds/starmourn/sounds/" .. soundname)
+end -- function
+
+function handle_taser_shock(name, line, wc)
+PlayGameSound("taser")
+end -- function
