@@ -443,14 +443,14 @@
   </trigger>
   <trigger
    enabled="y"
-   group="gadgets"
+   group="stimjector"
    match="You feel a rush of vitality as your stimjector releases healing nanites into your bloodstream."
    sequence="100"
   >
   </trigger>
   <trigger
    enabled="y"
-   group="stimjector"
+   group="gadgets"
    match="You feel a rush of vitality as your stimjector releases healing nanites into your bloodstream."
    sequence="100"
   >
@@ -783,6 +783,14 @@
   </trigger>
   <trigger
    enabled="y"
+   group="ships"
+   match="^A shudder passes over the ship as it lands\, docked with (.*?)\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="rescue"
    match="^A sizzle of energy fills the center of the transporter platform with light as (.*?) materializes\.$"
    regexp="y"
@@ -872,7 +880,7 @@
   </trigger>
   <trigger
    enabled="y"
-   group="mindsim"
+   group="ptp"
    match="^Linking into the interface of (.*?)\, you see the following destinations programmed\:$"
    regexp="y"
    sequence="100"
@@ -880,7 +888,7 @@
   </trigger>
   <trigger
    enabled="y"
-   group="ptp"
+   group="mindsim"
    match="^Linking into the interface of (.*?)\, you see the following destinations programmed\:$"
    regexp="y"
    sequence="100"
@@ -978,7 +986,23 @@
   <trigger
    enabled="y"
    group="ships"
+   match="^The ship moves towards (.*?)\, preparing to dock\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="ships"
    match="^The ship\'s engines spin up into forward thrust at (.*?)\% power\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="ships"
+   match="^The ship\'s inertial stabilizers fire into action\, arresting the ship\'s rotational movement into a (.*?) bearing\.$"
    regexp="y"
    sequence="100"
   >
@@ -1287,14 +1311,6 @@
   </trigger>
   <trigger
    enabled="y"
-   group="claninfluence"
-   match="^Your actions have increased your influence in (.*?)$"
-   regexp="y"
-   sequence="100"
-  >
-  </trigger>
-  <trigger
-   enabled="y"
    group="faction"
    match="^Your actions have increased your influence in (.*?)$"
    regexp="y"
@@ -1522,9 +1538,9 @@
   >
   <variable name="health"></variable>
   <variable name="health_percent"></variable>
-  <variable name="mxp_prompt">Health: 820/820 PT: 48 [BW-] </variable>
-  <variable name="mxp_roomdesc">Cobbled together from old ships, this busy station is hopping with activity. Search-and-rescue drones come and go, while medi teams hurry through the corridors with patients in tow. </variable>
-  <variable name="mxp_roomname">Breakaway Rescue Station.                                        </variable>
+  <variable name="mxp_prompt">[ Speed: 0 (15%) | Hull: 100% | Shield: 100% | Cap: 0% | Reynolds Spaceport ] </variable>
+  <variable name="mxp_roomdesc">The interior of this starship has a distinctly well-worn appearance, every piece of equipment battered from use, but still cared for and clean. The bulkheads are dinged and dented from passage through asteroid fields, but have no structural breaches. Edges of consoles and sensors are rounded and shiny from years of forearms leaning against them. Clattering underfoot are corrugated metal floor panels, the hollow reverberations suggesting there may be compartments beneath them. The bridge spreads out here in an array of blinking lights and navigational computers, and rad-shielded formglass windows set into the ship's blunted nose look out into space. </variable>
+  <variable name="mxp_roomname">The bridge of a travel-seasoned starship.                        </variable>
   <variable name="ship_cap"></variable>
   <variable name="ship_hull">100</variable>
   <variable name="ship_shields"></variable>
