@@ -1,10 +1,15 @@
 require "json"
+require "math"
+local dir = require"pl.dir"
+local path = require "pl.path"
 
 room = {}
 player = {}
 
 function handle_communications(name, line, wc)
-  AddToHistory(wc[1], line)
+  local channel = wc[1]
+  AddToHistory(channel, line)
+  PlayGameSound(channel)
 end
 
 function handle_tells(name, line, wc)
@@ -60,9 +65,25 @@ function handle_mxp(variable, value)
 end -- function
 
 function PlayGameSound(soundname)
-  return Sound("worlds/starmourn/sounds/" .. soundname)
+  local sound
+  local soundpath = "worlds/starmourn/sounds/" .. soundname
+  if path.isdir(soundpath) then
+    local sounds = dir.getfiles(soundpath)
+    sound = sounds[math.random(#sounds)]
+  elseif path.isfile(soundpath) then
+    local sound = soundpath
+  end -- if
+  return Sound(sound)
 end -- function
 
 function handle_taser_shock(name, line, wc)
 PlayGameSound("taser")
 end -- function
+
+function BuildArray(...)
+  local arr = {}
+  for v in ... do
+    arr[#arr + 1] = v
+  end
+  return arr
+end
