@@ -3,6 +3,9 @@ require "math"
 local dir = require"pl.dir"
 local path = require "pl.path"
 
+Accelerator("alt+h", "$ TTSHealth()")
+Accelerator("alt+l", "$ TTSLevel()")
+
 room = {}
 player = {}
 
@@ -51,8 +54,13 @@ function handle_char_status (data)
   player.race = data.race
   player.gender = data.gender
   player.marks = data.marks
+  player.level = data.level
   player.target = data.target
 end
+
+function handle_ire_target_set(target)
+  player.target = target
+end -- function
 
 function ExecuteNoStack(cmd)
   local s = GetOption("enable_command_stack")
@@ -66,24 +74,30 @@ end -- function
 
 function PlayGameSound(soundname)
   local sound
-  local soundpath = "worlds/starmourn/sounds/" .. soundname
-  if path.isdir(soundpath) then
+  local soundpath = path.abspath("worlds/starmourn/sounds/" .. soundname)
+	  if path.isdir(soundpath) then
     local sounds = dir.getfiles(soundpath)
     sound = sounds[math.random(#sounds)]
   elseif path.isfile(soundpath) then
-    local sound = soundpath
+    sound = soundpath
   end -- if
-  return Sound(sound)
+  if sound then
+    return Sound(sound)
+  end -- if
 end -- function
 
 function handle_taser_shock(name, line, wc)
 PlayGameSound("taser")
 end -- function
 
-function BuildArray(...)
-  local arr = {}
-  for v in ... do
-    arr[#arr + 1] = v
-  end
-  return arr
-end
+function TTSHealth()
+  Speak(player.hp or "unknown")
+  end -- function
+
+function TTSLevel()
+  Speak(player.level or "unknown")
+  end -- function
+
+function Speak(msg)
+ExecuteNoStack("tts_interrupt " .. msg)
+end -- function
