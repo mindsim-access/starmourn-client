@@ -89,7 +89,6 @@
    timestamp_output_back_colour="black"
    tool_tip_visible_time="5000"
    tool_tip_start_time="400"
-   treeview_triggers="y"
    treeview_aliases="y"
    treeview_timers="y"
    underline_hyperlinks="y"
@@ -330,6 +329,20 @@
    enabled="y"
    group="ships"
    match="The shields are now at full strength."
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="ships"
+   match="The ship collects the surrounding * into its scoops, bringing the collected total to *."
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="ships"
+   match="The ship prepares to deploy its scoops."
    sequence="100"
   >
   </trigger>
@@ -826,8 +839,10 @@
    group="gunslinging"
    match="^A (.*?) kicks in your grip and an explosive noise cracks the air as you fire a shot at (.*?)$"
    regexp="y"
+   send_to="12"
    sequence="100"
   >
+  <send>PlayGameSound('gun/pistol')</send>
   </trigger>
   <trigger
    enabled="y"
@@ -898,8 +913,11 @@
    group="gunslinging"
    match="^An explosive noise cracks the air as (.*?) fires a (.*?) at (.*?)\.$"
    regexp="y"
+   send_to="12"
    sequence="100"
   >
+  <send>PlayGameSound('guns/pistol')
+</send>
   </trigger>
   <trigger
    enabled="y"
@@ -984,7 +1002,7 @@
   </trigger>
   <trigger
    enabled="y"
-   group="mindsim"
+   group="ptp"
    match="^Linking into the interface of (.*?)\, you see the following destinations programmed\:$"
    regexp="y"
    sequence="100"
@@ -992,7 +1010,7 @@
   </trigger>
   <trigger
    enabled="y"
-   group="ptp"
+   group="mindsim"
    match="^Linking into the interface of (.*?)\, you see the following destinations programmed\:$"
    regexp="y"
    sequence="100"
@@ -1687,9 +1705,9 @@
   >
   <variable name="health"></variable>
   <variable name="health_percent"></variable>
-  <variable name="mxp_prompt">[ Speed: 0 (45%) | Hull: 100% | Shield: 100% | Cap: 0% | Reynolds Spaceport ] </variable>
-  <variable name="mxp_roomdesc">The interior of this starship has a distinctly well-worn appearance, every piece of equipment battered from use, but still cared for and clean. The bulkheads are dinged and dented from passage through asteroid fields, but have no structural breaches. Edges of consoles and sensors are rounded and shiny from years of forearms leaning against them. Clattering underfoot are corrugated metal floor panels, the hollow reverberations suggesting there may be compartments beneath them. The bridge spreads out here in an array of blinking lights and navigational computers, and rad-shielded formglass windows set into the ship's blunted nose look out into space. </variable>
-  <variable name="mxp_roomname">The bridge of a travel-seasoned starship.                        </variable>
+  <variable name="mxp_prompt">Health: 985/985 PT: 0 [BW-] </variable>
+  <variable name="mxp_roomdesc">Lined with benches, this transport gate is filled with people arriving from out of the system, or waiting for their ship to come in. A large, clanking airlock regularly discharges new arrivals to the station, the metal battered and worn, like much else about this ramshackle space station that serves as a central transit point for the sector. </variable>
+  <variable name="mxp_roomname">A docking gate in Reynolds Spaceport.                            </variable>
   <variable name="ship_cap"></variable>
   <variable name="ship_hull">100</variable>
   <variable name="ship_shields"></variable>

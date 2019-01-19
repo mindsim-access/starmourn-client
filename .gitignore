@@ -8,7 +8,6 @@ help.db
 license.txt
 locale
 logs
-lua
 lua5.1.dll
 lua5.1.lib
 mime
