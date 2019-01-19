@@ -1,6 +1,6 @@
 local dir = require"pl.dir"
 local path = require "pl.path"
-require "pl.stringx"
+local stringx = require "pl.stringx"
 
 SOUND_PATH = path.abspath("worlds/starmourn/sounds/")
 SOUND_EXT = ".ogg"
