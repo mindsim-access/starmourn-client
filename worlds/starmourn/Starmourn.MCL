@@ -293,6 +293,13 @@
   </trigger>
   <trigger
    enabled="y"
+   group="shipforge"
+   match="The information screen whirrs as the shipforge finalizes your orders and detaches."
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="lifts"
    match="The interface changes color, calling the lift car to your location."
    sequence="100"
@@ -888,6 +895,14 @@
   </trigger>
   <trigger
    enabled="y"
+   group="gunslinging"
+   match="^An explosive noise cracks the air as (.*?) fires a (.*?) at (.*?)\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="improvisation"
    match="^As the explosive detonates\, the force of its self\-destruction punches past (.*?) defenses\, wounding it\.$"
    regexp="y"
@@ -996,6 +1011,14 @@
    group="prompt"
    match="^Location\: (.*?) \((.*?)\, (.*?)\)$"
    omit_from_output="y"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="shipforge"
+   match="^Machinery whirs and an informational screen bursts to life as (.*?) enters the shipforge\.$"
    regexp="y"
    sequence="100"
   >
