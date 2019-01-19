@@ -36,7 +36,7 @@ function handle_GMCP(name, line, wc)
   if handler_func == nil then
   --  Note("No handler " .. handler_func_name .. " for " .. command .. " " .. args)
   else
-    Note("Processing " .. command .. " with arguments " .. args)
+  --  Note("Processing " .. command .. " with arguments " .. args)
     handler_func(json.decode(args))
   end -- if
 end -- function
@@ -155,15 +155,15 @@ function TTSxp()
   end -- function
 
 function TTSObjects()
-  SpeakList(ItemNames(room.objects))
+  SpeakList(ItemNames(room.objects), "No objects")
 end -- function
 
 function TTSMobs()
-  SpeakList(ItemNames(room.mobs))
+  SpeakList(ItemNames(room.mobs), "No Mobs")
 end -- function
 
 function TTSPlayers()
-  SpeakList(ItemNames(room.players))
+  SpeakList(ItemNames(room.players), "No players")
 end -- function
 
 function ItemNames(tbl)

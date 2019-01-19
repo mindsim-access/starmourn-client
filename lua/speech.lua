@@ -1,9 +1,11 @@
-
-function SpeakList(lst)
-  if lst == nil then
-    lst = {}
+function SpeakList(lst, default)
+  local msg
+  if lst == {} then
+    msg = default
+  else
+    msg = (', '):join(lst)
   end -- if
-  Speak((', '):join(lst))
+  Speak(msg)
 end -- function
 
 function Speak(msg)
