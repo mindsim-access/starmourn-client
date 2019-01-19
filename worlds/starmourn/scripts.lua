@@ -1,45 +1,32 @@
 require "json"
 require 'tprint' -- useful in global namespace
 require "math"
-local dir = require"pl.dir"
-local path = require "pl.path"
+require "speech"
+require "starmourn"
+
 local seq = require 'pl.seq'
 local stringx = require "pl.stringx"
 local tablex = require "pl.tablex"
 
 stringx.import()
 
-SOUND_PATH = path.abspath("worlds/starmourn/sounds/")
-SOUND_EXT = ".ogg"
 
 Accelerator("alt+h", "$ TTSHealth()")
 Accelerator("alt+l", "$ TTSLevel()")
+Accelerator("alt+x", "$ TTSxp()")
 Accelerator("alt+o", "$ TTSObjects()")
 Accelerator("alt+p", "$ TTSPlayers()")
 Accelerator("alt+m", "$ TTSMobs()")
 
-room = {}
+
+room = {
+  mobs = {},
+  objects = {},
+  players = {},
+}
+
 player = {}
 
-function handle_communications(name, line, wc)
-  local channel = wc[1]
-  AddToHistory(channel, line)
-  PlayGameSound('channels/' .. channel)
-end
-
-function handle_tells(name, line, wc)
-  AddToHistory("Tells", line)
-  PlayGameSound('channels/tell')
-end
-
-function handle_mindsim_messages(name, line, wc)
-  AddToHistory("Mindsim", line)
-  PlayGameSound('channels/mindsim')
-end
-
-function AddToHistory(source, message)
-ExecuteNoStack("history_add " .. source .. "=" .. message)
-end
 
 function handle_GMCP(name, line, wc)
   local command = wc[1]
@@ -47,18 +34,15 @@ function handle_GMCP(name, line, wc)
   local handler_func_name = "handle_" .. command:lower():gsub("%.", "_")
   local handler_func = _G[handler_func_name]
   if handler_func == nil then
-    -- Note("No handler " .. handler_func_name .. " for " .. command .. " " .. args)
+  --  Note("No handler " .. handler_func_name .. " for " .. command .. " " .. args)
   else
-    -- Note("Processing " .. command .. " with arguments " .. args)
+    Note("Processing " .. command .. " with arguments " .. args)
     handler_func(json.decode(args))
   end -- if
 end -- function
 
 function handle_room_info(data)
-  data.players = {}
-  data.npcs = {}
-  data.objects= {}
-  tablex.copy(room, data)
+  tablex.update(room, data)
 end
 
 function handle_char_vitals(data)
@@ -67,12 +51,52 @@ function handle_char_vitals(data)
   vitals.max_hp = data.maxhp
   vitals.pt = data.pt
   vitals.max_pt = data.maxpt
+  vitals.combat = data.combat
+  vitals.xp = data.xp
   tablex.update(player, vitals)
+end -- function
+
+function handle_room_players(data)
+  local update = {}
+  for index, player in pairs(data) do
+    update[player.name] = player
+  end -- for
+  room.players = update
+end --function
+
+function handle_room_addplayer (data)
+  room.players[data.name] = data
+end -- function
+
+function handle_room_removeplayer(data)
+  room.players[data] = nil
+end -- function
+ 
+function handle_char_items_add (data)
+  update = {}
+  update[data.item.id] = data.item
+  if data.location == 'room' then
+    if IsMob(data.item) then
+      tablex.update(room.mobs, update)
+    else
+      tablex.update(room.objects, update)
+    end -- if
+      end -- if
+end -- function
+
+function handle_char_items_remove (data)
+  if data.location == 'room' then
+    if IsMob(data.item) then
+      room.mobs[data.item.id] = nil
+    else
+      room.objects[data.item.id] = nil
+    end -- if
+  end -- if
 end -- function
 
 function handle_char_status (data)
   tablex.update(player, data)
-end
+end -- function
 
 function handle_ire_target_set(target)
   player.target = target
@@ -82,7 +106,7 @@ function handle_char_items_list(data)
   mobs = {}
   objects = {}
   for index, item in ipairs(data.items) do
-    if item.attrib == 'mx' then
+    if IsMob(item) then
       mobs[item.id] = item
     else
       objects[item.id] = item
@@ -90,10 +114,21 @@ function handle_char_items_list(data)
   end -- for
   update = {
     mobs = mobs,
-    players = players,
-   objects = objects,
+    objects = objects,
   }
+  room.objects = {}
+  room.mobs = {}
   tablex.update(room, update)
+end -- function
+
+function handle_comm_channel_text(data)
+  if data.channel == 'say' then
+    AddToHistory("Conversation", StripANSI(data.text))
+  end -- if
+end -- function
+
+function IsMob(obj)
+  return obj.attrib and obj.attrib:startswith('m')
 end -- function
 
 function ExecuteNoStack(cmd)
@@ -106,24 +141,6 @@ end
 function handle_mxp(variable, value)
 end -- function
 
-function PlayGameSound(soundname)
-  local sound
-  local soundpath = SOUND_PATH .. "/" .. soundname
-  if path.isdir(soundpath) then
-    local sounds = dir.getfiles(soundpath)
-    sound = sounds[math.random(#sounds)]
-  end -- if
-  if not stringx.endswith(soundname, SOUND_EXT) then
-    soundname = soundname .. ".ogg"
-  end -- if
-  local soundpath = SOUND_PATH .. "/" .. soundname
-  if path.isfile(soundpath) then
-    sound = soundpath
-  end -- if
-  if sound then
-    return Sound(sound)
-  end -- if
-end -- function
 
 function TTSHealth()
   Speak(player.hp or "unknown")
@@ -131,6 +148,10 @@ function TTSHealth()
 
 function TTSLevel()
   Speak(player.level or "unknown")
+  end -- function
+
+function TTSxp()
+  Speak(player.xp or "unknown")
   end -- function
 
 function TTSObjects()
@@ -156,13 +177,3 @@ function ItemNames(tbl)
   return names
 end -- function
 
-function SpeakList(lst)
-  if lst == nil then
-    lst = {}
-  end -- if
-  Speak((', '):join(lst))
-end -- function
-
-function Speak(msg)
-ExecuteNoStack("tts_interrupt " .. msg)
-end -- function
