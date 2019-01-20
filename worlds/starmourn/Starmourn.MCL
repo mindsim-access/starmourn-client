@@ -89,6 +89,7 @@
    timestamp_output_back_colour="black"
    tool_tip_visible_time="5000"
    tool_tip_start_time="400"
+   treeview_triggers="y"
    treeview_aliases="y"
    treeview_timers="y"
    underline_hyperlinks="y"
@@ -770,6 +771,16 @@
   </trigger>
   <trigger
    enabled="y"
+   group="turrets"
+   match="^(.*?) is no longer aiming at anyone\.$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>PlayGameSound('turret/power_down')</send>
+  </trigger>
+  <trigger
+   enabled="y"
    group="armor"
    match="^(.*?) merges (.*?) into (.*?) base layer\, the smartcore technology melding the item seamlessly into (.*?) suit\.$"
    regexp="y"
@@ -856,8 +867,10 @@
    group="bots"
    match="^A crane\-armed carrybot claws (.*?)\, shredding its skin\.$"
    regexp="y"
+   send_to="12"
    sequence="100"
   >
+  <send>PlayGameSound('carrybot/claw')</send>
   </trigger>
   <trigger
    enabled="y"
@@ -993,7 +1006,7 @@
   <trigger
    enabled="y"
    group="prompt"
-   match="^Health\: (.*?)\/(.*?) PT\: (.*?) \[BW\-\] $"
+   match="^Health\: (.*?)\/(.*?) PT\: (.*?) \[.*?\] $"
    omit_from_output="y"
    regexp="y"
    sequence="100"
@@ -1127,8 +1140,10 @@
    group="turrets"
    match="^The barrel of (.*?) swings to point directly at (.*?)\, and it begins to spin up with a dangerous mechanical whine that suggests ensuing violence\.$"
    regexp="y"
+   send_to="12"
    sequence="100"
   >
+  <send>PlayGameSound('turret/power_up')</send>
   </trigger>
   <trigger
    enabled="y"
@@ -1239,6 +1254,14 @@
    enabled="y"
    group="equipment"
    match="^You are now wearing a (.*?) on your (.*?)\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="bots"
+   match="^You build an instruction loop into (.*?)\'s programming\, ordering it to repeatedly attempt to (.*?)$"
    regexp="y"
    sequence="100"
   >
@@ -1715,9 +1738,9 @@
   >
   <variable name="health"></variable>
   <variable name="health_percent"></variable>
-  <variable name="mxp_prompt">Health: 985/985 PT: 18 [BW-] </variable>
-  <variable name="mxp_roomdesc">This stand of tall trees stretches in every direction, the trunks thick and covered in rough gray bark. The leafy canopy overhead shields the eye from the vertiginous sight of the ever-climbing horizon and the other side of the hollow asteroid, miles distant and just as green. The trees seem old, with tangles of roots like arthritic knuckles protruding above the earth, making the spongy terrain uneven. </variable>
-  <variable name="mxp_roomname">Wandering among a stand of tall trees.                           </variable>
+  <variable name="mxp_prompt">Health: 1080/1080 PT: 18 [BW-] </variable>
+  <variable name="mxp_roomdesc">A small clearing among the trees gives way to an esoteric, humming piece of machinery that resembles a huge box as large as a small hut. A suggestion of age and use is apparent in its worn metal plating; vines and shrubbery have likewise grown up around and on it. Despite this, the machine still produces a loud, steady hum, and regularly vents hisses of steamy air into the atmosphere. </variable>
+  <variable name="mxp_roomname">Near a humming, vine-covered atmospheric generator.              </variable>
   <variable name="ship_cap"></variable>
   <variable name="ship_hull">100</variable>
   <variable name="ship_shields"></variable>
