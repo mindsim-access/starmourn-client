@@ -1004,8 +1004,10 @@
    group="turrets"
    match="^Hot\, destructive\, and all consuming fire roars from (.*?)\, engulfing (.*?) completely\.$"
    regexp="y"
+   send_to="12"
    sequence="100"
   >
+  <send>PlayGameSound('flamethrower')</send>
   </trigger>
   <trigger
    enabled="y"
@@ -1714,8 +1716,8 @@
   <variable name="health"></variable>
   <variable name="health_percent"></variable>
   <variable name="mxp_prompt">Health: 985/985 PT: 18 [BW-] </variable>
-  <variable name="mxp_roomdesc">Cobbled together from old ships, this busy station is hopping with activity. Search-and-rescue drones come and go, while medi teams hurry through the corridors with patients in tow. </variable>
-  <variable name="mxp_roomname">Breakaway Rescue Station.                                        </variable>
+  <variable name="mxp_roomdesc">This stand of tall trees stretches in every direction, the trunks thick and covered in rough gray bark. The leafy canopy overhead shields the eye from the vertiginous sight of the ever-climbing horizon and the other side of the hollow asteroid, miles distant and just as green. The trees seem old, with tangles of roots like arthritic knuckles protruding above the earth, making the spongy terrain uneven. </variable>
+  <variable name="mxp_roomname">Wandering among a stand of tall trees.                           </variable>
   <variable name="ship_cap"></variable>
   <variable name="ship_hull">100</variable>
   <variable name="ship_shields"></variable>
