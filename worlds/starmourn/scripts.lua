@@ -177,3 +177,28 @@ function ItemNames(tbl)
   return names
 end -- function
 
+ENVIRONMENT_TYPES = {
+  lake = 'water',
+  meadow = 'grass',
+  campsite = 'grass',
+  spacecraft = 'metal',
+  ruin = 'concrete',
+  street = 'concrete',
+  spaceport = 'metal',
+  lift = 'metal',
+  building = 'concrete',
+  catwalk = 'metal',
+  urban = 'concrete',
+  canyon = 'dirt',
+  garden = 'grass',
+  forest = 'leaves',
+}
+ENVIRONMENT_TYPES['engine room'] = 'metal'
+
+function EnvironmentType()
+  return ENVIRONMENT_TYPES[room.environment] or 'default'
+end -- function
+
+function handle_bodyfall(name, line, wc)
+  PlayGameSound('falls/' .. EnvironmentType())
+end -- function

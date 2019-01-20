@@ -114,6 +114,13 @@
   <trigger
    enabled="y"
    group="ambience"
+   match="A branch snaps somewhere close by."
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="ambience"
    match="A faint hum grows louder, then ceases, as a periodic maintenance cycle completes."
    sequence="100"
   >
@@ -1319,6 +1326,7 @@
    group="combat"
    match="^You have slain (.*?)\.$"
    regexp="y"
+   script="handle_bodyfall"
    sequence="100"
   >
   </trigger>
@@ -1705,9 +1713,9 @@
   >
   <variable name="health"></variable>
   <variable name="health_percent"></variable>
-  <variable name="mxp_prompt">Health: 985/985 PT: 0 [BW-] </variable>
-  <variable name="mxp_roomdesc">Lined with benches, this transport gate is filled with people arriving from out of the system, or waiting for their ship to come in. A large, clanking airlock regularly discharges new arrivals to the station, the metal battered and worn, like much else about this ramshackle space station that serves as a central transit point for the sector. </variable>
-  <variable name="mxp_roomname">A docking gate in Reynolds Spaceport.                            </variable>
+  <variable name="mxp_prompt">Health: 985/985 PT: 18 [BW-] </variable>
+  <variable name="mxp_roomdesc">Cobbled together from old ships, this busy station is hopping with activity. Search-and-rescue drones come and go, while medi teams hurry through the corridors with patients in tow. </variable>
+  <variable name="mxp_roomname">Breakaway Rescue Station.                                        </variable>
   <variable name="ship_cap"></variable>
   <variable name="ship_hull">100</variable>
   <variable name="ship_shields"></variable>
