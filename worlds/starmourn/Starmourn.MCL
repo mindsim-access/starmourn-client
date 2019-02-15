@@ -488,6 +488,13 @@
   </trigger>
   <trigger
    enabled="y"
+   group="turrets"
+   match="You continue disassembling the turret."
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="ships"
    match="You embark the ship."
    sequence="100"
@@ -1024,7 +1031,7 @@
   </trigger>
   <trigger
    enabled="y"
-   group="ptp"
+   group="mindsim"
    match="^Linking into the interface of (.*?)\, you see the following destinations programmed\:$"
    regexp="y"
    sequence="100"
@@ -1032,7 +1039,7 @@
   </trigger>
   <trigger
    enabled="y"
-   group="mindsim"
+   group="ptp"
    match="^Linking into the interface of (.*?)\, you see the following destinations programmed\:$"
    regexp="y"
    sequence="100"
@@ -1115,6 +1122,14 @@
    enabled="y"
    group="guile"
    match="^Swinging wildly with all your might\, you land a mighty punch on (.*?)$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="turrets"
+   match="^Taking a few tools out of your kit\, you set to work on (.*?)\, beginning to disassemble it with efficient but unhurried movements\.$"
    regexp="y"
    sequence="100"
   >
@@ -1215,6 +1230,14 @@
    enabled="y"
    group="gunslinging"
    match="^With hairtrigger speed\, you fire off a shot at (.*?) the second you see it\, the explosive bang of the bullet leaving the barrel a deafening\, intimidating noise\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="turrets"
+   match="^Working swiftly\, using a welding torch and a small screwdriver\, you finish disassembling (.*?)\, storing the salvageable parts carefully in your toolkit\.$"
    regexp="y"
    sequence="100"
   >
@@ -1359,6 +1382,14 @@
    enabled="y"
    group="gadgets"
    match="^You initiate a scan on (.*?)\, and the nano\-MRI lasers project a matrix over (.*?)\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="turrets"
+   match="^You install a suite of recognition software into a deployed turret with a mounted forcewave barrel\, programming it to only respond to and assault (.*?)\.$"
    regexp="y"
    sequence="100"
   >
@@ -1738,9 +1769,9 @@
   >
   <variable name="health"></variable>
   <variable name="health_percent"></variable>
-  <variable name="mxp_prompt">Health: 1080/1080 PT: 18 [BW-] </variable>
-  <variable name="mxp_roomdesc">A small clearing among the trees gives way to an esoteric, humming piece of machinery that resembles a huge box as large as a small hut. A suggestion of age and use is apparent in its worn metal plating; vines and shrubbery have likewise grown up around and on it. Despite this, the machine still produces a loud, steady hum, and regularly vents hisses of steamy air into the atmosphere. </variable>
-  <variable name="mxp_roomname">Near a humming, vine-covered atmospheric generator.              </variable>
+  <variable name="mxp_prompt">Health: 1250/1250 PT: 33 [BW-] </variable>
+  <variable name="mxp_roomdesc">Uneven terrain and frequent sinkholes litter the landscape, and everything is rocks on rocks on rocks. Dull browns, grays, oranges, yellows, the difficult walk blends into a sea of beige dust, the badlands filled with the abandoned tech that the nearby ruins seem to have flung away, the detritus long since picked over for salvage. </variable>
+  <variable name="mxp_roomname">Rocky badlands outside a ruined city.                            </variable>
   <variable name="ship_cap"></variable>
   <variable name="ship_hull">100</variable>
   <variable name="ship_shields"></variable>
