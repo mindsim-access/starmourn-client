@@ -20,7 +20,7 @@ names.txt
 readme.txt
 scripts
 socket
-sounds
+./sounds
 spell
 spellchecker.lua
 tips.txt
