@@ -89,7 +89,6 @@
    timestamp_output_back_colour="black"
    tool_tip_visible_time="5000"
    tool_tip_start_time="400"
-   treeview_triggers="y"
    treeview_aliases="y"
    treeview_timers="y"
    underline_hyperlinks="y"
@@ -158,8 +157,10 @@
    enabled="y"
    group="bots"
    match="An aerodynamic drone flies in, decelerating rapidly. It drops a supply of spare parts into your hands."
+   send_to="12"
    sequence="100"
   >
+  <send>PlayGameSound("drone/airdrop/complete")</send>
   </trigger>
   <trigger
    enabled="y"
@@ -172,8 +173,10 @@
    enabled="y"
    group="lifts"
    match="An indicator light flashes above the lift as it arrives at this floor."
+   send_to="12"
    sequence="100"
   >
+  <send>PlayGameSound("lift/available")</send>
   </trigger>
   <trigger
    enabled="y"
@@ -288,8 +291,10 @@
    enabled="y"
    group="lifts"
    match="The ground beneath your feet seems to shift for a split second as the lift begins to move."
+   send_to="12"
    sequence="100"
   >
+  <send>PlayGameSound("turbolift/start")</send>
   </trigger>
   <trigger
    enabled="y"
@@ -337,13 +342,6 @@
    enabled="y"
    group="ships"
    match="The shields are now at full strength."
-   sequence="100"
-  >
-  </trigger>
-  <trigger
-   enabled="y"
-   group="ships"
-   match="The ship collects the surrounding * into its scoops, bringing the collected total to *."
    sequence="100"
   >
   </trigger>
@@ -548,13 +546,6 @@
   </trigger>
   <trigger
    enabled="y"
-   group="cosmpiercer"
-   match="You have entered a zone in the influence range of an * controlled cosmpiercer."
-   sequence="100"
-  >
-  </trigger>
-  <trigger
-   enabled="y"
    group="game"
    match="You have entered an invalid command."
    sequence="100"
@@ -585,8 +576,10 @@
    enabled="y"
    group="cloning"
    match="You press your finger against a biometric pad, syncing your genetic data with this cloning facility."
+   send_to="12"
    sequence="100"
   >
+  <send>PlayGameSound("cloning/sync")</send>
   </trigger>
   <trigger
    enabled="y"
@@ -635,6 +628,15 @@
   </trigger>
   <trigger
    enabled="y"
+   group="turrets"
+   match="Your attempt to subvert this turret is thwarted by a strong encryption."
+   send_to="12"
+   sequence="100"
+  >
+  <send>PlayGameSound("turret/hacking/fail")</send>
+  </trigger>
+  <trigger
+   enabled="y"
    group="hacking"
    match="Your incorrect password attempt locks the processor array, ending your hack."
    sequence="100"
@@ -672,8 +674,10 @@
    enabled="y"
    group="hacking"
    match="Your vision comes back into focus as your consciousness returns to your physical body."
+   send_to="12"
    sequence="100"
   >
+  <send>PlayGameSound("hacking/end")</send>
   </trigger>
   <trigger
    enabled="y"
@@ -779,6 +783,14 @@
   <trigger
    enabled="y"
    group="turrets"
+   match="^(.*?) has lost its turret\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="turrets"
    match="^(.*?) is no longer aiming at anyone\.$"
    regexp="y"
    send_to="12"
@@ -871,13 +883,23 @@
   </trigger>
   <trigger
    enabled="y"
+   group="turrets"
+   match="^A chattering noise fills the air as (.*?) fires a spray of barbed shards of metal at (.*?)\.$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>PlayGameSound("turret/shardflinger")</send>
+  </trigger>
+  <trigger
+   enabled="y"
    group="bots"
    match="^A crane\-armed carrybot claws (.*?)\, shredding its skin\.$"
    regexp="y"
    send_to="12"
    sequence="100"
   >
-  <send>PlayGameSound('carrybot/claw')</send>
+  <send>PlayGameSound("carrybot/claw")</send>
   </trigger>
   <trigger
    enabled="y"
@@ -964,6 +986,16 @@
   </trigger>
   <trigger
    enabled="y"
+   group="turrets"
+   match="^Blindingly bright\, a stuttering ray of light lances from the barrel of (.*?)\, slicing into (.*?)\.$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>PlayGameSound('turrets/laser')</send>
+  </trigger>
+  <trigger
+   enabled="y"
    group="guile"
    match="^Combining a tiny\, illegal chipset and some off\-the\-shelf sensors\, you construct a tiny recording device\.$"
    regexp="y"
@@ -983,8 +1015,10 @@
    group="turrets"
    match="^Dropping (.*?)\, you toe its activation button with a neat little kick\, and the mechanical device springs to life with a smooth\, dangerous\, whirring noise\.$"
    regexp="y"
+   send_to="12"
    sequence="100"
   >
+  <send>PlayGameSound('turret/activate')</send>
   </trigger>
   <trigger
    enabled="y"
@@ -1031,7 +1065,7 @@
   </trigger>
   <trigger
    enabled="y"
-   group="mindsim"
+   group="ptp"
    match="^Linking into the interface of (.*?)\, you see the following destinations programmed\:$"
    regexp="y"
    sequence="100"
@@ -1039,7 +1073,7 @@
   </trigger>
   <trigger
    enabled="y"
-   group="ptp"
+   group="mindsim"
    match="^Linking into the interface of (.*?)\, you see the following destinations programmed\:$"
    regexp="y"
    sequence="100"
@@ -1099,8 +1133,10 @@
    group="turrets"
    match="^Plugging a hacking module into a port on (.*?)\, you instruct your mindsim to run a subversion subroutine through the device in an attempt to reassign its current permissions to you\.$"
    regexp="y"
+   send_to="12"
    sequence="100"
   >
+  <send>PlayGameSound('turret/hacking/start')</send>
   </trigger>
   <trigger
    enabled="y"
@@ -1131,8 +1167,10 @@
    group="turrets"
    match="^Taking a few tools out of your kit\, you set to work on (.*?)\, beginning to disassemble it with efficient but unhurried movements\.$"
    regexp="y"
+   send_to="12"
    sequence="100"
   >
+  <send>PlayGameSound('turret/disassemble/start')</send>
   </trigger>
   <trigger
    enabled="y"
@@ -1164,6 +1202,14 @@
    enabled="y"
    group="ships"
    match="^The lights dim slightly as activation of (.*?) begins\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="ships"
+   match="^The ship collects the surrounding (.*?) into its scoops\, bringing the collected total to (.*?)\.$"
    regexp="y"
    sequence="100"
   >
@@ -1243,6 +1289,16 @@
   >
   </trigger>
   <trigger
+   enabled="y"
+   group="turrets"
+   match="^Working swiftly\, using a welding torch and a small screwdriver\, you finish disassembling (.*?)\, storing the salvageable parts carefully in your toolkit\.$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>PlayGameSound("turret/disassemble/complete")</send>
+  </trigger>
+  <trigger
    group="interaction"
    match="^You acknowledge (.*?) in greeting\.$"
    regexp="y"
@@ -1315,6 +1371,16 @@
   </trigger>
   <trigger
    enabled="y"
+   group="combat"
+   match="^You cock back your leg and unleash a swift kick at (.*?)\.$"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>PlayGameSound("kick")</send>
+  </trigger>
+  <trigger
+   enabled="y"
    group="construction"
    match="^You construct (.*?)\.$"
    regexp="y"
@@ -1355,6 +1421,14 @@
   </trigger>
   <trigger
    enabled="y"
+   group="cosmpiercer"
+   match="^You have entered a zone in the influence range of an (.*?) controlled cosmpiercer\.$"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
    group="ships"
    match="^You have entered the (.*?) subsec\.$"
    regexp="y"
@@ -1383,8 +1457,10 @@
    group="gadgets"
    match="^You initiate a scan on (.*?)\, and the nano\-MRI lasers project a matrix over (.*?)\.$"
    regexp="y"
+   send_to="12"
    sequence="100"
   >
+  <send>PlayGameSound("HUD")</send>
   </trigger>
   <trigger
    enabled="y"
@@ -1769,9 +1845,9 @@
   >
   <variable name="health"></variable>
   <variable name="health_percent"></variable>
-  <variable name="mxp_prompt">Health: 1250/1250 PT: 33 [BW-] </variable>
-  <variable name="mxp_roomdesc">Uneven terrain and frequent sinkholes litter the landscape, and everything is rocks on rocks on rocks. Dull browns, grays, oranges, yellows, the difficult walk blends into a sea of beige dust, the badlands filled with the abandoned tech that the nearby ruins seem to have flung away, the detritus long since picked over for salvage. </variable>
-  <variable name="mxp_roomname">Rocky badlands outside a ruined city.                            </variable>
+  <variable name="mxp_prompt">Health: 1250/1250 PT: 10 [BW-] </variable>
+  <variable name="mxp_roomdesc">A tall tunnel obviously meant with space in mind, it heads off the main strip, angling slightly downward through the rock. </variable>
+  <variable name="mxp_roomname">A high-ceilinged tunnel sloping slightly downward.               </variable>
   <variable name="ship_cap"></variable>
   <variable name="ship_hull">100</variable>
   <variable name="ship_shields"></variable>
