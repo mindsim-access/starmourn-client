@@ -18,6 +18,15 @@ Accelerator("alt+o", "$ TTSObjects()")
 Accelerator("alt+p", "$ TTSPlayers()")
 Accelerator("alt+m", "$ TTSMobs()")
 
+-- Ship turning
+Accelerator('alt+numpad1', 'ship turn sw')
+Accelerator('alt+numpad2', 'ship turn s')
+Accelerator('alt+numpad3', 'ship turn se')
+Accelerator('alt+numpad4', 'ship turn w')
+Accelerator('alt+numpad6', 'ship turn e')
+Accelerator('alt+numpad7', 'ship turn nw')
+Accelerator('alt+numpad8', 'ship turn n')
+Accelerator('alt+numpad9', 'ship turn ne')
 
 room = {
   mobs = {},
@@ -27,6 +36,11 @@ room = {
 
 player = {}
 
+starchart = {}
+
+spacemap = {}
+
+ShouldResetStarmap = true
 
 function handle_GMCP(name, line, wc)
   local command = wc[1]
@@ -34,7 +48,7 @@ function handle_GMCP(name, line, wc)
   local handler_func_name = "handle_" .. command:lower():gsub("%.", "_")
   local handler_func = _G[handler_func_name]
   if handler_func == nil then
-  --  Note("No handler " .. handler_func_name .. " for " .. command .. " " .. args)
+--    Note("No handler " .. handler_func_name .. " for " .. command .. " " .. args)
   else
   --  Note("Processing " .. command .. " with arguments " .. args)
     handler_func(json.decode(args))
@@ -192,6 +206,7 @@ ENVIRONMENT_TYPES = {
   canyon = 'dirt',
   garden = 'grass',
   forest = 'leaves',
+  duct = 'metal',
 }
 ENVIRONMENT_TYPES['engine room'] = 'metal'
 
@@ -202,3 +217,52 @@ end -- function
 function handle_bodyfall(name, line, wc)
   PlayGameSound('falls/' .. EnvironmentType())
 end -- function
+
+STARCHART_SYMBOLS = {
+  X = "Your Location",
+}
+STARCHART_SYMBOLS['.'] = "Space"
+
+function handle_starchart(name, line, wc)
+  if line == 'Map of the Starmourn Sector:' then
+    starchart = {}
+    starchart_line = 0
+  else
+    starchart_line = starchart_line + 1
+    local result = {}
+    for index = 1, #line do
+      local symbol = line:sub(index,index)
+      result[index] = symbol
+    end -- for
+    starchart[starchart_line] = result
+  end -- if
+end -- function
+
+function FindInStarchart(symbol)
+  for x, line in pairs(starchart) do
+    for y, what in pairs(line) do
+      if symbol == what then
+        return {x=x, y=y}
+      end -- if
+    end -- for
+  end -- for
+end -- function
+
+function handle_spacemap(name, line, wc)
+  if line == '----------------------------------------' then
+    ShouldResetSpacemap = true
+  end -- if
+  if ShouldResetSpacemap then
+    spacemap = {}
+    spacemap_line = 0
+  else
+    spacemap_line = spacemap_line + 1
+    local result = {}
+    for index = 1, #line do
+      local symbol = line:sub(index,index)
+      result[index] = symbol
+    end -- for
+    spacemap[spacemap_line] = result
+  end -- if
+end -- function
+
