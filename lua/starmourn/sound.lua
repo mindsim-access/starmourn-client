@@ -6,6 +6,13 @@ SOUND_PATH = path.abspath("worlds/starmourn/sounds/")
 SOUND_EXT = ".ogg"
 
 function PlayGameSound(soundname)
+  local sound = FindGameSound(soundname)
+  if sound then
+    return Sound(sound)
+  end -- if
+end -- function
+
+function FindGameSound(soundname)
   local sound
   local soundpath = SOUND_PATH .. "/" .. soundname
   if path.isdir(soundpath) then
@@ -13,13 +20,11 @@ function PlayGameSound(soundname)
     sound = sounds[math.random(#sounds)]
   end -- if
   if not stringx.endswith(soundname, SOUND_EXT) then
-    soundname = soundname .. ".ogg"
+    soundname = soundname .. SOUND_EXT
   end -- if
   local soundpath = SOUND_PATH .. "/" .. soundname
   if path.isfile(soundpath) then
-    sound = soundpath
+    local sound = soundpath
   end -- if
-  if sound then
-    return Sound(sound)
-  end -- if
+  return sound
 end -- function
