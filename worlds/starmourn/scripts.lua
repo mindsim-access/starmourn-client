@@ -3,6 +3,7 @@ require 'tprint' -- useful in global namespace
 require "math"
 require "speech"
 require "starmourn"
+require "wait"
 
 local seq = require 'pl.seq'
 local stringx = require "pl.stringx"
@@ -266,3 +267,15 @@ function handle_spacemap(name, line, wc)
   end -- if
 end -- function
 
+function PossibleRoomEnvironments()
+  return {
+    tostring(room.num),
+    StripString(room.name),
+    StripString(room.area),
+    room.environment,
+  }
+end -- function
+
+function StripString(s)
+  return (s:gsub('[^a-zA-Z0-9 ]',''))
+end -- function
